@@ -1,5 +1,6 @@
 package User;
 
+
 public class Credentials {
     private String email;
     private String password;
@@ -13,9 +14,26 @@ public class Credentials {
         return new Credentials(user.getEmail(), user.getPassword());
     }
 
-    public static Credentials getWrongLoginPassword(User user) {
+    public static Credentials getWrongLoginPassword() {
         return new Credentials("email", "p@ssword");
     }
+
+    public static Credentials getWrongLogin(User user) {
+        return new Credentials("email", user.getPassword());
+    }
+
+    public static Credentials getEmptyLogin(User user) {
+        return new Credentials("", user.getPassword());
+    }
+
+    public static Credentials getWrongPassword(User user) {
+        return new Credentials(user.getEmail(), "p@ssword");
+    }
+
+    public static Credentials getEmptyPassword(User user) {
+        return new Credentials(user.getEmail(), "");
+    }
+
 
     public String getEmail() {
         return email;
